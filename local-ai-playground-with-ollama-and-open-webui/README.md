@@ -3,7 +3,7 @@
 See the [blog post](https://www.itguyjournals.com/getting-started-with-ollama/).
 
 Tools and technologies:
-- docker & docker compose
+- docker compose
 - ollama
 - open webui
 
