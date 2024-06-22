@@ -1,7 +1,15 @@
 # S3 Presigned Urls
-Implementation of the example in this [blog post](https://www.itguyjournals.com/s3-tiered-access-with-presigned-urls/).
+Code example of the blog post found [here](https://www.itguyjournals.com/s3-tiered-access-with-presigned-urls/).
 
-Project implements architecture in Fig 1, with two users to demonstrate tiered access to s3 resources.
+Tools and technologies:
+- s3
+- lambda
+- api gateway
+- cognito
+- aws sam
+- aws cli
+- bash
+
 
 Requirements:
 - aws account and user with programmatic access
@@ -14,6 +22,12 @@ Requirements:
 #### Architecture
 <p align="center"><img width="50%" src="./assets/s3-pre-signed-url.png" title="Fig 1. S3 presigned url architecture" /></p>
 <p align="center">Fig 1. S3 presigned url architecture</p>
+
+Project implements api gateway with cognito authorizer.
+Two users are created in cognito to demonstrate tiered access to the s3 resources.
+Api gateway implements endpoint with lambda integration, for issuing s3 presigned urls with different permissions.
+
+
 
 #### Deploying The Stack
 

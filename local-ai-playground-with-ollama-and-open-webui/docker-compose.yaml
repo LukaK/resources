@@ -1,0 +1,41 @@
+services:
+
+  ollama:
+    image: ollama/ollama
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    # following section is if you are passing gpu to the container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    restart: always
+    ports:
+      - "3000:8080"
+    networks:
+      - app-network
+    volumes:
+      - open-webui:/app/backend/data
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+
+volumes:
+  ollama:
+    driver: local
+  open-webui:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
