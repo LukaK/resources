@@ -1,2 +1,2 @@
 # mini-projects
-Small projects to demonstrate a concept or support blog posts.
+Small projects to demonstrate a concept or to support specific blog posts.
